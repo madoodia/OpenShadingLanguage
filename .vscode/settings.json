@@ -24,7 +24,8 @@
     "qrunnable": "cpp",
     "qquickitem": "cpp",
     "qapplication": "cpp",
-    "xstring": "cpp"
+    "xstring": "cpp",
+    "cstdlib": "cpp"
   },
   "editor.formatOnSave": true,
   "files.autoSave": "onFocusChange",

@@ -3,15 +3,15 @@
   "tasks": [
     {
       "type": "shell",
-      "label": "build_debug",
+      "label": "build",
       "windows": {
-        "command": "${workspaceFolder}/.buildSystem/win/build_debug.bat",
+        "command": "${workspaceFolder}/build_scripts/vscode_release_build.bat",
       },
       "linux": {
-        "command": "${workspaceFolder}/.buildSystem/linux/build_debug.sh",
+        "command": "${workspaceFolder}/build_scripts/vscode_release_build.sh",
       },
       "osx": {
-        "command": "${workspaceFolder}/.buildSystem/osx/build_debug.sh",
+        "command": "${workspaceFolder}/build_scripts/vscode_release_build.sh",
       },
       "args": [
         "${workspaceFolder}",
