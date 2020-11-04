@@ -782,7 +782,7 @@ private:
 
 void OSLToyMainWindow::recompile_shaders()
 {
-  // qDebug("hereA");
+  qDebug("hereA");
   m_groupspec.clear();
   m_firstshadername.clear();
   m_groupname.clear();
