@@ -1,0 +1,19 @@
+Bugs --------------------
+- output should be Cout, otherwise it will crash
+- after changing Properties you can not recompile shader to first state or reset it
+- you should load a shader from cmdline, can not copy new shader and run
+- osltoy window will not open in the middle of screen
+- widgets are not resizable
+- open menu does not work
+- can not close tabs
+- can not open different shaders and work on them simoultaniously
+- can not update current open file if we change it outside of the app
+
+Features ----------------
+- need a place to define include path to search other osl functions (for each tab)
+- each shader detect other tabs
+- editor color highlight
+- .clang-format detection
+- preferences
+- slider values are more handy (houdini style value change)
+- 

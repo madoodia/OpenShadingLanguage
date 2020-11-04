@@ -19,7 +19,7 @@
 // August 2013:
 // This update employs a simple material layering mechanism that allows
 // two ubersurface shaders to connect and composite in a consistent manner.
-// Connecting ubersurfaceB.Out_Ci to ubersurfaceA.Next_Layer results in 
+// Connecting ubersurfaceB.Cout to ubersurfaceA.Next_Layer results in 
 // the appearance of ubersurfaceA over ubersurfaceB.  
 //
 // In this logic, opacity of 0 will pass through the top layer and call the
@@ -214,7 +214,7 @@ ubersurface
     float  In_V = v,
 
     // Shader Layering
-    output closure color Out_Ci = 0,
+    output closure color Cout = 0,
     closure color Next_Layer = 0
 
 )
@@ -234,11 +234,11 @@ ubersurface
 
     // Test for shadow rays and exit early, supplying only the transparency closure.
     if(raytype("shadow")) {
-        Out_Ci = transparencyClosure;
+        Cout = transparencyClosure;
 
 	//Naive layering of in shadow context
 	if(isconnected(Next_Layer)){
-	   Out_Ci = Out_Ci + Next_Layer;
+	   Cout = Cout + Next_Layer;
 	}
 
     } else {
@@ -317,17 +317,17 @@ ubersurface
     	}
 
 	// Accumulate and output
-    	Out_Ci = ((diffuseClosure + specularClosure + emissionClosure) * opacity);
+    	Cout = ((diffuseClosure + specularClosure + emissionClosure) * opacity);
 
 	if(isconnected(Next_Layer))
 	{
-	   Out_Ci = Next_Layer * refractionFilter + Out_Ci;
+	   Cout = Next_Layer * refractionFilter + Cout;
 	} else {
-	   Out_Ci = Out_Ci + (refractionClosure*opacity) + transparencyClosure;
+	   Cout = Cout + (refractionClosure*opacity) + transparencyClosure;
 	}
     }
 
-    Ci = Out_Ci;
+    Ci = Cout;
 
 }
 
